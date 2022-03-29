@@ -20,21 +20,20 @@
     </header>
 
     <content>
-        <p>Helloo {{ user.username }} </p>
         <div>
             <tr>
-                <form action="" method="post">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-2">
-                                {% csrf_token %}
-                                <h2>Ajouter un film</h2>
-                                {{ form }}
-                                <input type="submit" value="Validée">
-                            </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-2">
+                            <form action="saveFilm" method="post">
+                            {% csrf_token %}
+                            <h2>Ajouter un film</h2>
+                            {{ form }}
+                            <input type="submit" value="Validée">
+                        </form>
                         </div>
                     </div>
-                </form>
+                </div>
             </tr>
         </div>
     </content>
