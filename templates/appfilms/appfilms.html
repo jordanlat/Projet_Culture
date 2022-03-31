@@ -20,16 +20,101 @@
     </header>
 
     <content>
+        <div class="titre_page d-flex justify-content-center m-4">
+            <h2>Ajouter un film</h2>
+        </div>
         <div>
             <tr>
                 <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-2">
-                            <form action="saveFilm" method="post">
+                    <div class="row">
+                        <div class="col-md">
+                            <form action="" method="post">
                             {% csrf_token %}
-                            <h2>Ajouter un film</h2>
-                            {{ form }}
-                            <input type="submit" value="Validée">
+                            <div class="row justify-content-evenly m-2">
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <label for="titre">Titre</label>
+                                    </div>
+                                    <div class="row">
+                                        <input type="text" id="titre" name="titre">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <label for="type">Type</label>
+                                    </div>
+                                    <div class="row">
+                                        <input type="text" id="type" name="type">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-evenly m-2">
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <label for="">Année</label>
+                                    </div>
+                                    <div class="row">
+                                        <input type="number" id="date" min="1895" max="2100" value="2022" name="date">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <label for="">plateforme</label>
+                                    </div>
+                                    <div class="row">
+                                        <input type="text" id="plateforme" name="plateforme">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-evenly m-2">
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <label for="">Note moyenne</label>
+                                    </div>
+                                    <div class="row">
+                                        <input type="number" id="note" value="0" name="note">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <label for="">Statut</label>
+                                    </div>
+                                    <div class="row">
+                                        <input type="text" id='statut' name="statut">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-evenly m-2">
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <label for="">Lien</label>
+                                    </div>
+                                    <div class="row">
+                                        <input type="text" id="lien" name="lien">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <label for="">Acteurs</label>
+                                    </div>
+                                    <div class="row">
+                                        <input type="text" id="acteurs" name="acteurs">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container d-flex justify-content-md-center  m-2">
+                                <div class="row">
+                                        <label for="">Résumer</label>
+                                        <textarea id="resume" cols="60" rows="2"  name="resume"></textarea>
+                                </div>
+                            </div>
+                            <div class="container d-flex justify-content-md-center m-2">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <input type="submit" value="Validée" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                         </div>
                     </div>

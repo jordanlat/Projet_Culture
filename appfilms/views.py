@@ -1,32 +1,38 @@
-from urllib.request import Request
-from django.shortcuts import redirect, render
-from django.template import RequestContext
-
+from django.shortcuts import render
+from .models import Film
 from .filmForm import  FilmForm
-#from .filmForm import FilmFormset
+
 
 def filmView(request):
     form = FilmForm()
-    #print(request.user.username)
-    #print("Welcome to appFilms")
+    if(request.POST):
+        saveFilm(request)
     return render(request, 'appfilms/appfilms.html', {"form": form})
 
 
 def saveFilm(request):
-    form = FilmForm()
-    print('SUBMITTED')
+    form = Film()
+
+    if(request.POST):
+        data = request.POST.dict()
+        form = Film(
+          titre      = data.get('titre'),
+          type       = data.get('type'),
+          date       = data.get('date'),
+          plateforme = data.get('plateforme'),
+          moy_note   = data.get('note'),
+          statut     = data.get('statut'),
+          liens      = data.get('lien'),
+          acteurs    = data.get('acteurs'),
+          par_qui    = request.user,
+          resume     = data.get('resume')
+        )
+
+        if form:
+            print('Form is valid')
+            form.save()
 
 
-    if request.method == 'POST':
-        print('-----SUBMIT OK----')
-        form = FilmForm(request.POST)
-        if form.is_valid():
-            film = form.save(commit=False)
-            film.par_qui = request.user
-            film_formset = FilmForm(request.POST, instance=film)
-            if film_formset.is_valid():
-                film_formset.save()
-            return redirect('films')
     else :
         print('******NO SUBMIT******')
 
