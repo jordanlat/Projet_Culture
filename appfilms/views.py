@@ -5,13 +5,14 @@ from .filmForm import  FilmForm
 
 def filmView(request):
     form = FilmForm()
-    if(request.POST):
-        saveFilm(request)
-    return render(request, 'appfilms/appfilms.html', {"form": form})
+    database = Film.objects.all()
+    a={"film_list": database}
+    return render(request, 'appfilms/appfilms.html', a)
 
 
 def saveFilm(request):
     form = Film()
+    
 
     if(request.POST):
         data = request.POST.dict()
