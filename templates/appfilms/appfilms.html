@@ -9,13 +9,15 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <title>Films</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="overflow: hidden;">
     <header
         class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <div class="gTitre d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-            <h1 class="navbar-nav me-auto mb-2 mb-lg-0">Films/Séries</h1>
+            <h1 class="navbar-nav me-auto mb-2 mb-lg-0">Films</h1>
         </div>
         <div class="col-md-3 text-end">
             <div class="bt_logout">
@@ -24,41 +26,80 @@
         </div>
     </header>
     <content>
+        <div class="titre m-5" style="text-align: center;">
+            <h2>Listes des films</h2>
+        </div>
         <!-- LIST FILM -->
         
-        <div class="films_list border-left-5"> 
-
-            <table class="table table-striped table-hover table-bordered"> 
+        <div class="films_list border-left-5 d-flex flex-wrap align-items-center justify-content-center" style="background-color: rgba(236, 229, 229, 0.548); height: 80vh; width: 90vw; overflow-y: scroll; margin: auto; border: solid 2px;"> 
+            <table class="table table-striped table-hover table-bordered;" id="sortTable">  
                 <thead>
                     <tr>
-                        <th colspan="2">Liste des films</th>
-                    </tr>
-                    <tr>
-                        <th scope="col">Titre</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Plateforme</th>
-                        <th scope="col">Note</th>
-                        <th scope="col">Statut</th>
-                        <th scope="col">Lien</th>
-                        <th scope="col">Acteurs</th>
-                        <th scope="col">Ajouteé par qui</th>
-                        <th scope="col">Résumé</th>
+                        <th scope="col" class="border-2 border-dark">
+                            <a href="{% url 'sort_films' col_name='titre' %}">
+                                <h3>Titre</h3>
+                            </a>
+                        </th>
+                        <th scope="col" class="border-2 border-dark">
+                            <a href="{% url 'sort_films' col_name='type' %}">
+                                <h3>Type</h3>
+                            </a>
+                        </th>
+                        <th scope="col" class="border-2 border-dark">
+                            <a href="{% url 'sort_films' col_name='date' %}">
+                                <h3>Date</h3>
+                            </a>
+                        </th>
+                        <th scope="col" class="border-2 border-dark">
+                            <a href="{% url 'sort_films' col_name='plateforme' %}">
+                                <h3>Plateforme</h3>
+                            </a>
+                        </th>
+                        <th scope="col" class="border-2 border-dark">
+                            <a href="{% url 'sort_films' col_name='moy_note' %}">
+                                <h3>Note</h3>
+                            </a>
+                        </th>
+                        <th scope="col" class="border-2 border-dark">
+                            <a href="{% url 'sort_films' col_name='statut' %}">
+                                <h3>Statut</h3>
+                            </a>
+                        </th>
+                        <th scope="col" class="border-2 border-dark">
+                            <a href="{% url 'sort_films' col_name='liens' %}">
+                                <h3>Lien</h3>
+                            </a>
+                        </th>
+                        <th scope="col" class="border-2 border-dark">
+                            <a href="{% url 'sort_films' col_name='acteurs' %}">
+                                <h3>Acteurs</h3>
+                            </a>
+                        </th>
+                        <th scope="col" class="border-2 border-dark">
+                            <a href="{% url 'sort_films' col_name='par_qui' %}">
+                                <h3>Ajouteé par qui</h3>
+                            </a>
+                        </th>
+                        <th scope="col" class="border-2 border-dark">
+                            <a href="{% url 'sort_films' col_name='resume' %}">
+                                <h3>Résumé</h3>
+                            </a>
+                        </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     {% for film in film_list %}
                     <tr>
-                        <td>{{ film.titre }}</td>
-                        <td>{{ film.type }}</td>
-                        <td>{{ film.date }}</td>
-                        <td>{{ film.plateforme }}</td>
-                        <td>{{ film.moy_note }}</td>
-                        <td>{{ film.statut }}</td>
-                        <td><a href="{{ film.liens }}">{{ film.liens }}</a></td>
-                        <td>{{ film.acteurs }}</td>
-                        <td>{{ film.par_qui }}</td>
-                        <td>{{ film.resume }}</td>
+                        <td class="border-1 border-dark">{{ film.titre }}</td>
+                        <td class="border-1 border-dark">{{ film.type }}</td>
+                        <td class="border-1 border-dark">{{ film.date }}</td>
+                        <td class="border-1 border-dark">{{ film.plateforme }}</td>
+                        <td class="border-1 border-dark">{{ film.moy_note }}</td>
+                        <td class="border-1 border-dark">{{ film.statut }}</td>
+                        <td class="border-1 border-dark"><a href="{{ film.liens }}">{{ film.liens }}</a></td>
+                        <td class="border-1 border-dark">{{ film.acteurs }}</td>
+                        <td class="border-1 border-dark">{{ film.par_qui }}</td>
+                        <td class="border-1 border-dark">{{ film.resume }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -189,5 +230,7 @@
         </div>
     </content>
 </body>
-
+<script>
+    $('#sortTable').DataTable();
+</script>
 </html>
