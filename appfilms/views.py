@@ -1,19 +1,19 @@
 from django.shortcuts import render
 from .models import Film
-from .filmForm import  FilmForm
+from django.db.models import Q
 
 
+# Vue principale / on affiche la liste de film
 def filmView(request):
     database = Film.objects.all()
     a={"film_list": database}
 
     return render(request, 'appfilms/appfilms.html', a)
 
-
+# Pour enregistrer un film
 def saveFilm(request):
     form = Film()
     
-
     if(request.POST):
         data = request.POST.dict()
         form = Film(
@@ -28,13 +28,11 @@ def saveFilm(request):
           par_qui    = request.user,
           resume     = data.get('resume')
         )
-
         if form:
             print('Form is valid')
             form.save()
-
-
     else :
+        # Plus tard ajouté message erreur utilisateur
         print('******NO SUBMIT******')
 
     return render(request, 'appfilms/appfilms.html',{'form': form})
@@ -46,3 +44,15 @@ def sort_films(request, col_name):
     a={"film_list": sort_data}
 
     return render(request, 'appfilms/appfilms.html', a)
+
+
+def search(request):
+    #words = request.POST.get('search')
+    print('words = ')
+    #print(words)
+
+    #object_list = Film.objects.filter()
+    #print(object_list)
+
+
+    return render(request, 'appfilms/appfilms.html')

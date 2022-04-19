@@ -29,4 +29,5 @@ urlpatterns = [
     path('films', appfilmsView.filmView, name='films'),
     path('saveFilm', appfilmsView.saveFilm, name='saveFilm'),
     path('sort_films/<str:col_name>', appfilmsView.sort_films, name='sort_films'),
+    path('search', appfilmsView.search, name='search'),
 ]
