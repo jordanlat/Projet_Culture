@@ -9,7 +9,6 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <title>Films</title>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
@@ -37,7 +36,11 @@
                         {% csrf_token %}
                         <label for="search"><h5>Recherche:</h5></label>
                         <input type="text" name="search" id="search" placeholder="titre">
-                        <button type="submit"></button>
+                        <button type="submit">Submit</button>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Ajouter un film</button>
+
                     </form>
                 </div>
                 <div class="col">
@@ -119,8 +122,6 @@
             </div>
         </div>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="Ajouter un film"></button>
 
         <!-- Modal / Formulaire ajout film -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -240,6 +241,7 @@
     </content>
 </body>
 <script>
+    /*
     $("#search").submit(function(e) {
         console.log("keypressed");
         e.preventDefault();
@@ -253,6 +255,10 @@
                 console.log(data);
             }
         })
-    })
+    });
+    */
+    $("search").keypress(
+        console.log("HELOOOOO")
+    );
 </script>
 </html>

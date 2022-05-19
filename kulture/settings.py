@@ -81,12 +81,8 @@ WSGI_APPLICATION = 'kulture.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kulture',
-        'USER': 'testuser',
-        'PASSWORD': 'toto123',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'C:/sqlite/kulture.db',
     }
 }
 
