@@ -1,0 +1,114 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter un film</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <tr>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md">
+                                    <form action="saveFilm" method="post">
+                                        {% csrf_token %}
+                                        <div class="row justify-content-evenly m-2">
+                                            <div class="col-sm-4">
+                                                <div class="row">
+                                                    <label for="titre">Titre</label>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="text" id="titre" name="titre" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="row">
+                                                    <label for="type">Type</label>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="text" id="type" name="type" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-evenly m-2">
+                                            <div class="col-sm-4">
+                                                <div class="row">
+                                                    <label for="">Année</label>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="number" id="date" min="1895" max="2100"
+                                                        value="2022" name="date">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="row">
+                                                    <label for="">plateforme</label>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="text" id="plateforme" name="plateforme"
+                                                        required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-evenly m-2">
+                                            <div class="col-sm-4">
+                                                <div class="row">
+                                                    <label for="">Note moyenne</label>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="number" id="note" value="0" name="note">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="row">
+                                                    <label for="">Statut</label>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="text" id='statut' name="statut" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-evenly m-2">
+                                            <div class="col-sm-4">
+                                                <div class="row">
+                                                    <label for="">Lien</label>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="text" id="lien" name="lien">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="row">
+                                                    <label for="">Acteurs</label>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="text" id="acteurs" name="acteurs">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container d-flex justify-content-md-center  m-2">
+                                            <div class="row">
+                                                <label for="">Résumer</label>
+                                                <textarea id="resume" cols="60" rows="2"
+                                                    name="resume"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="container d-flex justify-content-md-center m-2">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <input type="submit" value="Validée" class="btn btn-primary"
+                                                        data-bs-dismiss="modal">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<form action="search" method="POST">
+    {% csrf_token %}
+    <label for="search"><h5>Recherche:</h5></label>
+    <input type="text" name="search" id="search" placeholder="titre">
+    <button type="submit">Submit</button>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Ajouter un film</button>
+
+</form>

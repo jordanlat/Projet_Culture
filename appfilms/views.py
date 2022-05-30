@@ -8,7 +8,7 @@ def filmView(request):
     database = Film.objects.all()
     a={"film_list": database}
 
-    return render(request, 'appfilms/appfilms.html', a)
+    return render(request, 'appfilms/main.app.film.html', a)
 
 # Pour enregistrer un film
 def saveFilm(request):
@@ -35,7 +35,7 @@ def saveFilm(request):
         # Plus tard ajouté message erreur utilisateur
         print('******NO SUBMIT******')
 
-    return render(request, 'appfilms/appfilms.html',{'form': form})
+    return render(request, 'appfilms/main.app.film.html',{'form': form})
 
 
 
@@ -43,7 +43,7 @@ def sort_films(request, col_name):
     sort_data = Film.objects.order_by(col_name)
     a={"film_list": sort_data}
 
-    return render(request, 'appfilms/appfilms.html', a)
+    return render(request, 'appfilms/main.app.film.html', a)
 
 
 def search(request):
@@ -55,4 +55,4 @@ def search(request):
     #print(object_list)
 
 
-    return render(request, 'appfilms/appfilms.html')
+    return render(request, 'appfilms/main.app.film.html')
