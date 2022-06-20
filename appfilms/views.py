@@ -2,13 +2,19 @@ from django.shortcuts import render
 from .models import Film
 from django.db.models import Q
 
+# Actualise la liste des films
+def database():
+    database = Film.objects.all()
+    return(database)
+
 
 # Vue principale / on affiche la liste de film
 def filmView(request):
-    database = Film.objects.all()
     a={"film_list": database}
-
     return render(request, 'appfilms/main.app.film.html', a)
+
+
+
 
 # Pour enregistrer un film
 def saveFilm(request):
@@ -31,11 +37,12 @@ def saveFilm(request):
         if form:
             print('Form is valid')
             form.save()
+            a={"film_list": database}
     else :
         # Plus tard ajouté message erreur utilisateur
         print('******NO SUBMIT******')
 
-    return render(request, 'appfilms/main.app.film.html',{'form': form})
+    return render(request, 'appfilms/main.app.film.html',a)
 
 
 
