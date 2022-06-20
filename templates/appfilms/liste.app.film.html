@@ -5,6 +5,9 @@
                 <thead class="undefined sticky-header">
                     <tr>
                         <th scope="col" class="border-2 border-dark">
+                            <h3>Supprimé</h3>
+                        </th>
+                        <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='titre' %}">
                                 <h3>Titre</h3>
                             </a>
@@ -61,6 +64,9 @@
             <tbody >
                 {% for film in film_list %}
                 <tr>
+                    <td class="border-1 border-dark">
+                        <button type="button" id="bt_{{ film.id }}" ><a href="{% url 'delete' film.id %}">DELETE {{ film.id }}</a></button>
+                    </td>
                     <td class="border-1 border-dark">{{ film.titre }}</td>
                     <td class="border-1 border-dark">{{ film.type }}</td>
                     <td class="border-1 border-dark">{{ film.date }}</td>

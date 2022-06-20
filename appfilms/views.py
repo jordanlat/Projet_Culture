@@ -14,8 +14,6 @@ def filmView(request):
     return render(request, 'appfilms/main.app.film.html', a)
 
 
-
-
 # Pour enregistrer un film
 def saveFilm(request):
     form = Film()
@@ -23,6 +21,7 @@ def saveFilm(request):
     if(request.POST):
         data = request.POST.dict()
         form = Film(
+          id         = data.get('id'),
           titre      = data.get('titre'),
           type       = data.get('type'),
           date       = data.get('date'),
@@ -63,3 +62,10 @@ def search(request):
 
 
     return render(request, 'appfilms/main.app.film.html')
+
+def delete(request, id):
+    a={"film_list": database}
+    print("Delete")
+    print(id)
+    Film.objects.filter(id=id).delete()
+    return render(request, 'appfilms/main.app.film.html', a)

@@ -30,4 +30,5 @@ urlpatterns = [
     path('saveFilm', appfilmsView.saveFilm, name='saveFilm'),
     path('sort_films/<str:col_name>', appfilmsView.sort_films, name='sort_films'),
     path('search', appfilmsView.search, name='search'),
+    path('films/delete/<int:id>', appfilmsView.delete, name='delete'),
 ]
