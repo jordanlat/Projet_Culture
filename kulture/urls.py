@@ -27,8 +27,8 @@ urlpatterns = [
     path('hub/', include('hub.urls')),
     path('', loginView.logoutView, name="logout"),
     path('films', appfilmsView.filmView, name='films'),
-    path('saveFilm', appfilmsView.saveFilm, name='saveFilm'),
-    path('sort_films/<str:col_name>', appfilmsView.sort_films, name='sort_films'),
-    path('search', appfilmsView.search, name='search'),
+    path('films/ok', appfilmsView.saveFilm, name='saveFilm'),
+    path('films/sort_films/<str:col_name>', appfilmsView.sort_films, name='sort_films'),
+    path('films/search', appfilmsView.search, name='search'),
     path('films/delete/<int:id>', appfilmsView.delete, name='delete'),
 ]

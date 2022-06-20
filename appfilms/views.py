@@ -16,6 +16,7 @@ def filmView(request):
 
 # Pour enregistrer un film
 def saveFilm(request):
+    print('proc save film')
     form = Film()
     
     if(request.POST):

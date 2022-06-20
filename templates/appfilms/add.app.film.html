@@ -11,7 +11,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md">
-                                    <form action="saveFilm" method="post">
+                                    <form action="{% url 'saveFilm'  %}" method="post">
                                         {% csrf_token %}
                                         <div class="row justify-content-evenly m-2">
                                             <div class="col-sm-4">
