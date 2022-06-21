@@ -1,60 +1,60 @@
 <div class="col">
-    <div class="films_list border-left-5 text-center fixed-table-container fixed-height" style="background-color: rgba(236, 229, 229, 0.548); height: 80vh; width: 90vw; overflow-y: scroll; margin: auto; border: solid 2px;"> 
+    <div class="films_list border-left-5 text-center fixed-table-container fixed-height" style="background-color: rgba(236, 229, 229, 0.548); height: 60vh; width: 90vw; overflow-y: scroll; margin: auto; border: solid 2px;"> 
         <table class="table" id="sortTable" aria-describedby="Liste des films avec divers informations.">  
             <div class="fixed-table-header">
                 <thead class="undefined sticky-header">
                     <tr>
                         <th scope="col" class="border-2 border-dark">
-                            <h3>Supprimé</h3>
+                            <h5>Supprimé</h5>
                         </th>
                         <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='titre' %}">
-                                <h3>Titre</h3>
+                                <h5>Titre</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='type' %}">
-                                <h3>Type</h3>
+                                <h5>Type</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='date' %}">
-                                <h3>Date</h3>
+                                <h5>Date</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='plateforme' %}">
-                                <h3>Plateforme</h3>
+                                <h5>Plateforme</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='moy_note' %}">
-                                <h3>Note</h3>
+                                <h5>Note</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='statut' %}">
-                                <h3>Statut</h3>
+                                <h5>Statut</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='liens' %}">
-                                <h3>Lien</h3>
+                                <h5>Lien</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='acteurs' %}">
-                                <h3>Acteurs</h3>
+                                <h5>Acteurs</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='par_qui' %}">
-                                <h3>Ajouteé par qui</h3>
+                                <h5>Ajouteé par qui</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-2 border-dark">
                             <a href="{% url 'sort_films' col_name='resume' %}">
-                                <h3>Résumé</h3>
+                                <h5>Résumé</h5>
                             </a>
                         </th>
                     </tr>
@@ -65,15 +65,21 @@
                 {% for film in film_list %}
                 <tr>
                     <td class="border-1 border-dark">
-                        <button type="button" id="bt_{{ film.id }}" ><a href="{% url 'delete' film.id %}">DELETE {{ film.id }}</a></button>
+                        <button type="button" id="bt_{{ film.id }}" class="btn btn-danger">
+                            <a href="{% url 'delete' film.id %}" class="text-white text-decoration-none">
+                                <strong>
+                                    supprimer
+                                </strong>
+                            </a>
+                        </button>
                     </td>
-                    <td class="border-1 border-dark">{{ film.titre }}</td>
+                    <td class="border-1 border-dark"><strong>{{ film.titre }}</strong></td>
                     <td class="border-1 border-dark">{{ film.type }}</td>
                     <td class="border-1 border-dark">{{ film.date }}</td>
                     <td class="border-1 border-dark">{{ film.plateforme }}</td>
                     <td class="border-1 border-dark">{{ film.moy_note }}</td>
                     <td class="border-1 border-dark">{{ film.statut }}</td>
-                    <td class="border-1 border-dark"><a href="{{ film.liens }}">{{ film.liens }}</a></td>
+                    <td class="border-1 border-dark"><a href="{{ film.liens }}" target="_blank">{{ film.liens }}</a></td>
                     <td class="border-1 border-dark">{{ film.acteurs }}</td>
                     <td class="border-1 border-dark">{{ film.par_qui }}</td>
                     <td class="border-1 border-dark">{{ film.resume }}</td>
