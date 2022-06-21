@@ -16,7 +16,7 @@
                                         <div class="row justify-content-evenly m-2">
                                             <div class="col-sm-4">
                                                 <div class="row">
-                                                    <label for="titre">Titre</label>
+                                                    <label for="titre">Titre *</label>
                                                 </div>
                                                 <div class="row">
                                                     <input type="text" id="titre" name="titre" required>
@@ -24,7 +24,7 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="row">
-                                                    <label for="type">Type</label>
+                                                    <label for="type">Type *</label>
                                                 </div>
                                                 <div class="row">
                                                     <input type="text" id="type" name="type" required>
@@ -43,11 +43,15 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="row">
-                                                    <label for="">plateforme</label>
+                                                    <label for="">Plateforme *</label>
                                                 </div>
                                                 <div class="row">
-                                                    <input type="text" id="plateforme" name="plateforme"
-                                                        required>
+                                                    <select name="platforme" id="platforme" required>
+                                                        <option value="Netflix">Netflix</option>
+                                                        <option value="Prime Video">Prime Video</option>
+                                                        <option value="Disney +">Disney +</option>
+                                                        <option value="Autre" selected>Autre</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +66,7 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="row">
-                                                    <label for="">Statut</label>
+                                                    <label for="">Statut *</label>
                                                 </div>
                                                 <div class="row">
                                                     <input type="text" id='statut' name="statut" required>
@@ -92,6 +96,11 @@
                                                 <label for="">Résumer</label>
                                                 <textarea id="resume" cols="60" rows="2"
                                                     name="resume"></textarea>
+                                                <p><small>
+                                                    <em>
+                                                        * requis</p>
+                                                    </em>
+                                            </small>
                                             </div>
                                         </div>
                                         <div class="container d-flex justify-content-md-center m-2">
