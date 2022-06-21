@@ -1,0 +1,29 @@
+th {
+    /*background: white;*/
+    position: sticky;
+    top: 0; /* Don't forget this, required for the stickiness */
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border-left: 0px;
+    border-top: 0px;
+}
+
+body {
+    margin: 0;
+    padding: 2rem;
+}
+  
+table {
+    text-align: left;
+    position: relative;
+    border-collapse: collapse; 
+}
+
+td {
+    text-align: center;
+}
+
+a,h5 {
+    text-decoration: none;
+    color: white;
+}

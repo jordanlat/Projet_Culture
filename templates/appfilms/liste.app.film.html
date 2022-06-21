@@ -1,57 +1,60 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'appfilms/css/c.style.css' %}">
 <div class="col">
-    <div class="films_list border-left-5 text-center fixed-table-container fixed-height" style="background-color: rgba(236, 229, 229, 0.548); height: 60vh; width: 90vw; overflow-y: scroll; margin: auto; border: solid 2px;"> 
-        <table class="table" id="sortTable" aria-describedby="Liste des films avec divers informations.">  
+    <div class="films_list border-left-5 text-center fixed-table-container fixed-height rounded-3" style="background-color: rgba(236, 229, 229, 0.548); height: 60vh; width: 90vw; overflow-y: scroll; margin: auto; border: solid 2px;"> 
+        <table class="table table-dark table-striped table-borderless" id="sortTable" aria-describedby="Liste des films avec divers informations.">  
             <div class="fixed-table-header">
                 <thead class="undefined sticky-header">
                     <tr>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="">
+                            <p></p>
                         </th>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="border-1 border-white">
                             <a href="{% url 'sort_films' col_name='titre' %}">
                                 <h5>Titre</h5>
                             </a>
                         </th>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="border-1 border-white">
                             <a href="{% url 'sort_films' col_name='type' %}">
                                 <h5>Type</h5>
                             </a>
                         </th>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="border-1 border-white">
                             <a href="{% url 'sort_films' col_name='date' %}">
                                 <h5>Date</h5>
                             </a>
                         </th>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="border-1 border-white">
                             <a href="{% url 'sort_films' col_name='plateforme' %}">
                                 <h5>Plateforme</h5>
                             </a>
                         </th>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="border-1 border-white">
                             <a href="{% url 'sort_films' col_name='moy_note' %}">
                                 <h5>Note</h5>
                             </a>
                         </th>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="border-1 border-white">
                             <a href="{% url 'sort_films' col_name='statut' %}">
                                 <h5>Statut</h5>
                             </a>
                         </th>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="border-1 border-white">
                             <a href="{% url 'sort_films' col_name='liens' %}">
                                 <h5>Lien</h5>
                             </a>
                         </th>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="border-1 border-white">
                             <a href="{% url 'sort_films' col_name='acteurs' %}">
                                 <h5>Acteurs</h5>
                             </a>
                         </th>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="border-1 border-white">
                             <a href="{% url 'sort_films' col_name='par_qui' %}">
                                 <h5>Ajouteé par qui</h5>
                             </a>
                         </th>
-                        <th scope="col" class="border-2 border-dark">
+                        <th scope="col" class="border-1 border-white">
                             <a href="{% url 'sort_films' col_name='resume' %}">
                                 <h5>Résumé</h5>
                             </a>
@@ -63,7 +66,7 @@
             <tbody >
                 {% for film in film_list %}
                 <tr>
-                    <td class="border-1 border-dark">
+                    <td class="border-1 border-white">
                         <button type="button" id="bt_{{ film.id }}" class="btn btn-danger">
                             <a href="{% url 'delete' film.id %}" class="text-white text-decoration-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -73,16 +76,16 @@
                             </a>
                         </button>
                     </td>
-                    <td class="border-1 border-dark"><strong>{{ film.titre }}</strong></td>
-                    <td class="border-1 border-dark">{{ film.type }}</td>
-                    <td class="border-1 border-dark">{{ film.date }}</td>
-                    <td class="border-1 border-dark">{{ film.plateforme }}</td>
-                    <td class="border-1 border-dark">{{ film.moy_note }}</td>
-                    <td class="border-1 border-dark">{{ film.statut }}</td>
-                    <td class="border-1 border-dark"><a href="{{ film.liens }}" target="_blank">{{ film.liens }}</a></td>
-                    <td class="border-1 border-dark">{{ film.acteurs }}</td>
-                    <td class="border-1 border-dark">{{ film.par_qui }}</td>
-                    <td class="border-1 border-dark">{{ film.resume }}</td>
+                    <td class="border-1 border-white"><strong>{{ film.titre }}</strong></td>
+                    <td class="border-1 border-white">{{ film.type }}</td>
+                    <td class="border-1 border-white">{{ film.date }}</td>
+                    <td class="border-1 border-white">{{ film.plateforme }}</td>
+                    <td class="border-1 border-white">{{ film.moy_note }}</td>
+                    <td class="border-1 border-white">{{ film.statut }}</td>
+                    <td class="border-1 border-white"><a href="{{ film.liens }}" target="_blank">{{ film.liens }}</a></td>
+                    <td class="border-1 border-white">{{ film.acteurs }}</td>
+                    <td class="border-1 border-white">{{ film.par_qui }}</td>
+                    <td class="border-1 border-white">{{ film.resume }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
