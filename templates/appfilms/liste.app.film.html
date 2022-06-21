@@ -2,61 +2,60 @@
 <link rel="stylesheet" href="{% static 'appfilms/css/c.style.css' %}">
 <div class="col">
     <div class="films_list border-left-5 text-center fixed-table-container fixed-height rounded-3" style="background-color: rgba(236, 229, 229, 0.548); height: 60vh; width: 90vw; overflow-y: scroll; margin: auto; border: solid 2px;"> 
-        <table class="table table-dark table-striped table-borderless" id="sortTable" aria-describedby="Liste des films avec divers informations.">  
+        <table class="table table-striped table-borderless" id="sortTable" aria-describedby="Liste des films avec divers informations.">  
             <div class="fixed-table-header">
-                <thead class="undefined sticky-header">
+                <thead class="undefined sticky-header table-dark">
                     <tr>
-                        <th scope="col" class="">
-                            <p></p>
+                        <th scope="col" class="border-1 border-white ">
                         </th>
                         <th scope="col" class="border-1 border-white">
-                            <a href="{% url 'sort_films' col_name='titre' %}">
+                            <a href="{% url 'sort_films' col_name='titre' %}" class="text-white">
                                 <h5>Titre</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-1 border-white">
-                            <a href="{% url 'sort_films' col_name='type' %}">
+                            <a href="{% url 'sort_films' col_name='type' %}" class="text-white">
                                 <h5>Type</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-1 border-white">
-                            <a href="{% url 'sort_films' col_name='date' %}">
+                            <a href="{% url 'sort_films' col_name='date' %}" class="text-white">
                                 <h5>Date</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-1 border-white">
-                            <a href="{% url 'sort_films' col_name='plateforme' %}">
+                            <a href="{% url 'sort_films' col_name='plateforme' %}" class="text-white">
                                 <h5>Plateforme</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-1 border-white">
-                            <a href="{% url 'sort_films' col_name='moy_note' %}">
+                            <a href="{% url 'sort_films' col_name='moy_note' %}" class="text-white">
                                 <h5>Note</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-1 border-white">
-                            <a href="{% url 'sort_films' col_name='statut' %}">
+                            <a href="{% url 'sort_films' col_name='statut' %}" class="text-white">
                                 <h5>Statut</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-1 border-white">
-                            <a href="{% url 'sort_films' col_name='liens' %}">
-                                <h5>Lien</h5>
-                            </a>
-                        </th>
-                        <th scope="col" class="border-1 border-white">
-                            <a href="{% url 'sort_films' col_name='acteurs' %}">
+                            <a href="{% url 'sort_films' col_name='acteurs' %}" class="text-white">
                                 <h5>Acteurs</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-1 border-white">
-                            <a href="{% url 'sort_films' col_name='par_qui' %}">
+                            <a href="{% url 'sort_films' col_name='par_qui' %}" class="text-white">
                                 <h5>Ajouteé par qui</h5>
                             </a>
                         </th>
                         <th scope="col" class="border-1 border-white">
-                            <a href="{% url 'sort_films' col_name='resume' %}">
+                            <a href="{% url 'sort_films' col_name='resume' %}" class="text-white">
                                 <h5>Résumé</h5>
+                            </a>
+                        </th>
+                        <th scope="col" class="border-1 border-white">
+                            <a href="{% url 'sort_films' col_name='liens' %}" class="text-white">
+                                <h5>Lien</h5>
                             </a>
                         </th>
                     </tr>
@@ -82,10 +81,16 @@
                     <td class="border-1 border-white">{{ film.plateforme }}</td>
                     <td class="border-1 border-white">{{ film.moy_note }}</td>
                     <td class="border-1 border-white">{{ film.statut }}</td>
-                    <td class="border-1 border-white"><a href="{{ film.liens }}" target="_blank">{{ film.liens }}</a></td>
                     <td class="border-1 border-white">{{ film.acteurs }}</td>
                     <td class="border-1 border-white">{{ film.par_qui }}</td>
                     <td class="border-1 border-white">{{ film.resume }}</td>
+                    <td class="border-1 border-white">
+                        <a href="{{ film.liens }}" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                            </svg>
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
