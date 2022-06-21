@@ -27,7 +27,18 @@
                                                     <label for="type">Type *</label>
                                                 </div>
                                                 <div class="row">
-                                                    <input type="text" id="type" name="type" required>
+                                                    <select name="type" id="type" required>
+                                                        <option value="action">Action</option>
+                                                        <option value="aventure">Aventure</option>
+                                                        <option value="drame">Drame</option>
+                                                        <option value="thriller">Thriller</option>
+                                                        <option value="horreur">Horreur</option>
+                                                        <option value="romance">Romance</option>
+                                                        <option value="comedie">comédie</option>
+                                                        <option value="sf">SF</option>
+                                                        <option value="historique">historique</option>
+                                                        <option value="autre" selected>Autre</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -69,7 +80,10 @@
                                                     <label for="">Statut *</label>
                                                 </div>
                                                 <div class="row">
-                                                    <input type="text" id='statut' name="statut" required>
+                                                    <select name="statut" id="statut" required>
+                                                        <option value="a voir" selected>À voir</option>
+                                                        <option value="vue">Vue</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
