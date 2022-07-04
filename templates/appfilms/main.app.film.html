@@ -14,19 +14,22 @@
     <script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
 </head>
 
-<body style="overflow: hidden;">
+<body style="overflow: hidden;" class="bg-dark text-white m-4">
     <header
         class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <div class="gTitre d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-            <h1 class="navbar-nav me-auto mb-2 mb-lg-0">Films</h1>
+            <h1 class="navbar-nav me-auto mb-2 mb-lg-0 text-white">Films</h1>
         </div>
         <div class="col-md-3 text-end">
             <div class="bt_logout">
-                <a class="btn btn-outline-primary me-2" href="{% url 'logout' %}">Déconnexion</a>
+                <a  class="btn btn-danger" href="{% url 'logout' %}">Déconnexion</a>
             </div>
         </div>
     </header>
     <content>
+        <div class="bt_back">
+            <a href="{% url 'hub' %}" class="btn btn-warning">Retour</a>
+        </div>
         <div class="titre m-5" style="text-align: center;">
             <h2>Listes des films</h2>
         </div>
