@@ -54,19 +54,23 @@ def sort_films(request, col_name):
 
 
 def search(request):
-    #words = request.POST.get('search')
+    words = request.POST.get('search')
     print('words = ')
-    #print(words)
+    print(words)
 
-    #object_list = Film.objects.filter()
-    #print(object_list)
+    sort_data = Film.objects.filter(titre__startswith=words)
+    a={"film_list": sort_data}
 
 
-    return render(request, 'appfilms/main.app.film.html')
+    return render(request, 'appfilms/main.app.film.html', a)
 
 def delete(request, id):
     a={"film_list": database}
     print("Delete")
     print(id)
     Film.objects.filter(id=id).delete()
+    return render(request, 'appfilms/main.app.film.html', a)
+
+def reload(request):
+    a={"film_list": database}
     return render(request, 'appfilms/main.app.film.html', a)

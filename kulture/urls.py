@@ -25,10 +25,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('login.urls')),
     path('hub/', include('hub.urls')),
+    path('hub/', hubView.hubView, name='hub'),
     path('', loginView.logoutView, name="logout"),
     path('films', appfilmsView.filmView, name='films'),
     path('films/ok', appfilmsView.saveFilm, name='saveFilm'),
     path('films/sort_films/<str:col_name>', appfilmsView.sort_films, name='sort_films'),
     path('films/search', appfilmsView.search, name='search'),
     path('films/delete/<int:id>', appfilmsView.delete, name='delete'),
+    path('films/reload', appfilmsView.reload, name='reload'),
 ]
