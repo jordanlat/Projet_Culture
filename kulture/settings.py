@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'kulture.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'C:/sqlite/kulture.db',
+        'NAME': BASE_DIR/'kulture.db',
     }
 }
 
