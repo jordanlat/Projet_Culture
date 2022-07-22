@@ -1,6 +1,9 @@
+from tkinter import FLAT
 from django.shortcuts import render
 from .models import Film
-from django.db.models import Q
+from django.http import HttpResponseRedirect
+
+
 
 # Actualise la liste des films
 def database():
@@ -74,3 +77,9 @@ def delete(request, id):
 def reload(request):
     a={"film_list": database}
     return render(request, 'appfilms/main.app.film.html', a)
+
+
+# Permet de rediriger vers des liens externes
+def redirect(request, id):
+    monurl = Film.objects.filter(id=id).values('liens').get()
+    return HttpResponseRedirect(str(monurl['liens']))

@@ -33,4 +33,5 @@ urlpatterns = [
     path('films/search', appfilmsView.search, name='search'),
     path('films/delete/<int:id>', appfilmsView.delete, name='delete'),
     path('films/reload', appfilmsView.reload, name='reload'),
+    path('films/redirect/<int:id>', appfilmsView.redirect, name='redirect'),
 ]
